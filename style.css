@@ -14,7 +14,13 @@
     border-radius: 8px;
     transition: 0.3s;
     font-family: 'Orbitron', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
+
+
 
 
 .contatos a:hover {
@@ -135,6 +141,14 @@ p {
     font-size: 1rem;
 }
 
+.resumo{
+max-width: 600px;
+margin: 0 auto;
+text-align: center;
+
+
+
+}
 
 
 
