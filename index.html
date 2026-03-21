@@ -13,7 +13,7 @@
 <body>
 
 
-
+<div id="particles"></div>
 
     <h1>Este sou eu:</h1>
 
@@ -22,7 +22,27 @@
         <img src="templates/perfil.jpeg" alt="foto de perfil">
     </div>
 
-    <h2>Um pouco sobre mim:</h2>
+    <h3>Richard R. Araújo</h3>
+
+
+
+    <button id="btnSobre" class="btn-sobre">
+        <span class="texto">Quem sou eu?</span>
+        <span class="seta">▼</span>
+    </button>
+
+
+    <div id="sobre" class="sobre-box">
+        <p>💻 Designer Gráfico & Front-End Developer em formação | Apaixonado por criar experiências visuais impactantes
+            e explorar a interseção entre design e tecnologia. Sempre em busca de novos aprendizados, atualmente me
+            aprofundando
+            em front-end, mas com curiosidade sobre back-end para expandir minhas possibilidades no mercado.
+        </p>
+    </div>
+
+    <!---
+
+     <h2>Um pouco sobre mim:</h2>
 
 
 
@@ -34,8 +54,8 @@
             aprofundando
             em front-end, mas com curiosidade sobre back-end para expandir minhas possibilidades no mercado.</p>
 
-    </div>
-
+    </div>  
+--->
 
 
     <h2>Conheça um pouco dos meus designs:</h2>
@@ -50,6 +70,7 @@
             <img src="templates/projeto5.jpg" onclick="abrirModal(this)" alt="Projeto5">
             <img src="templates/projeto6.jpg" onclick="abrirModal(this)" alt="Projeto6">
             <img src="templates/projeto7.jpg" onclick="abrirModal(this)" alt="Projeto7">
+            <img src="templates/projeto8.jpg" onclick="abrirModal(this)" alt="Projeto8">
         </div>
 
         <div class="buttons">
@@ -73,32 +94,29 @@
     <!--script dos slides-->
 
     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const slides = document.getElementById('slides');
 
-        const slides = document.getElementById('slides');
-        let index = 0;
+            if (!slides) return;
 
-        function showSlide(i) {
-            const total = slides.children.length
-            if (i >= total) index = 0;
-            else if (i < 0) index = total - 1;
-            else index = i;
-            slides.style.transform = `translateX(${-index * 100}%)`;
-        }
+            let index = 0;
 
-        function nextSlide() {
-            showSlide(index + 1);
-        }
+            function showSlide(i) {
+                const total = slides.children.length;
 
-        function prevSlide() {
-            showSlide(index - 1);
-        }
+                if (i >= total) index = 0;
+                else if (i < 0) index = total - 1;
+                else index = i;
 
+                slides.style.transform = `translateX(${-index * 100}%)`;
+            }
 
-        setInterval(() => {
-            nextSlide();
-        }, 3000);
+            window.nextSlide = () => showSlide(index + 1);
+            window.prevSlide = () => showSlide(index - 1);
+
+            setInterval(() => showSlide(index + 1), 3000);
+        });
     </script>
-
 
     <!---Script do Modal-->
 
@@ -118,7 +136,99 @@
         }
     </script>
 
+<!---Script do Sobre-->
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("btnSobre");
+  const sobre = document.getElementById("sobre");
+
+  if (!btn || !sobre) return;
+
+  const texto = btn.querySelector(".texto");
+
+  btn.onclick = () => {
+    const ativo = sobre.classList.toggle("ativo");
+    btn.classList.toggle("ativo");
+
+    texto.textContent = ativo ? "Fechar" : "Quem sou eu?";
+  };
+});
+</script>
+
+
+
+<section class="skills">
+  <h2>Minhas Skills</h2>
+
+  <div class="terminal">
+    <p>> carregando habilidades...</p>
+
+    <h3>Front-End</h3>
+    <div class="skill">
+      <span>HTML</span>
+      <div class="barra"><div class="progresso html"></div></div>
+    </div>
+
+    <div class="skill">
+      <span>CSS</span>
+      <div class="barra"><div class="progresso css"></div></div>
+    </div>
+
+    <div class="skill">
+      <span>JavaScript</span>
+      <div class="barra"><div class="progresso js"></div></div>
+    </div>
+
+    <h3>Design</h3>
+    <div class="skill">
+      <span>Photoshop</span>
+      <div class="barra"><div class="progresso ps"></div></div>
+    </div>
+
+    <div class="skill">
+      <span>CorelDRAW</span>
+      <div class="barra"><div class="progresso corel"></div></div>
+    </div>
+
+    <div class="skill">
+      <span>Figma</span>
+      <div class="barra"><div class="progresso figma"></div></div>
+    </div>
+
+    <h3>Ferramentas</h3>
+    <div class="skill">
+      <span>GitHub</span>
+      <div class="barra"><div class="progresso git"></div></div>
+    </div>
+  </div>
+</section>
+
+<!---Animação das Skills--->
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const skills = document.querySelector(".skills");
+
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      document.querySelectorAll(".progresso").forEach(bar => {
+      bar.style.width = bar.classList.contains("html") ? "90%" :
+                  bar.classList.contains("css") ? "70%" :
+                  bar.classList.contains("js") ? "30%" :
+                  bar.classList.contains("ps") ? "80%" :
+                  bar.classList.contains("corel") ? "95%" :
+                  bar.classList.contains("figma") ? "65%" :
+                  bar.classList.contains("git") ? "40%" :
+                  "70%";
+      });
+    }
+  });
+
+  observer.observe(skills);
+});
+</script>
 
 
 
@@ -137,10 +247,71 @@
 
     </div>
 
+<!---particulas--->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
+<script>
+const isMobile = window.innerWidth < 768;
 
+tsParticles.load("particles", {
+  background: {
+    color: "transparent"
+  },
 
+  interactivity: {
+    events: {
+      onHover: {
+        enable: !isMobile, // desativa hover no mobile
+        mode: ["grab", "attract"]
+      },
+      onClick: {
+        enable: true,
+        mode: isMobile ? "push" : "repulse" // mobile cria, desktop reage
+      }
+    },
+    modes: {
+      repulse: {
+        distance: 100,
+        duration: 0.4
+      },
+      push: {
+        quantity: isMobile ? 2 : 4 // menos partículas no celular
+      },
+      grab: {
+        distance: 140
+      },
+      attract: {
+        distance: 150,
+        duration: 0.4
+      }
+    }
+  },
 
+  particles: {
+    number: {
+      value: isMobile ? 30 : 60 // menos no mobile (performance)
+    },
+    color: {
+      value: "#07cee9"
+    },
+    links: {
+      enable: true,
+      color: "#07cee9",
+      distance: 120
+    },
+    move: {
+      enable: true,
+      speed: isMobile ? 0.8 : 1 // mais suave no celular
+    },
+    size: {
+      value: 2
+    },
+    opacity: {
+      value: 0.5
+    }
+  }
+});
+</script>
 
 </body>
 

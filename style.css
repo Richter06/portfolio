@@ -18,14 +18,76 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    box-shadow: 0 0 15px #038888;
 }
 
+
+/*botão quem sou eu*/
+.btn-sobre {
+display: flex;
+align-items: center;
+position: relative;
+z-index: 999;
+gap: 10px;
+margin: auto;
+padding: 12px 25px;
+background: #07cee9;
+color: white;
+border: none;
+border-radius: 10px;
+cursor: pointer;
+font-family: 'Orbitron', sans-serif;
+transition: 0.3s;
+}
+
+/*hover*/
+
+.btn-sobre:hover {
+box-shadow: 0 0 20px #07cee9;
+transform: translateY(-2px);
+
+
+}
+
+/*seta*/
+.seta {
+    transition: 0.3s;
+}
+
+/*seta ativa*/
+.btn-sobre.ativo .seta {
+    transform: rotate(180deg);
+}
+
+/*caixa de texto*/
+.sobre-box {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.4s ease;
+}
+
+.sobre-box.ativo {
+  max-height: 500px;
+  opacity: 1;
+  transform: translateY(0);
+}
+.sobre-box p {
+background: rgba(255, 255, 255, 0.05);
+padding: 15px;
+border-radius: 10px;
+backdrop-filter: blur(5px);
+
+}
 
 
 
 .contatos a:hover {
     background-color: #58046d;
     transform: scale(1.05);
+    transform: translateY(-3px);
+     box-shadow: 0 8px 20px rgba(174, 0, 255, 0.74);
 }
 
 /* Container do slider */
@@ -65,7 +127,8 @@ img {
   position: absolute;
   top: 50%;
   left: 0;
-  width: 100%;
+  right: 0;
+  width: auto;
   transform: translateY(-50%);
   pointer-events: none;
 }
@@ -106,7 +169,7 @@ img {
 }
 
 .modal {
-    display: none;
+    display: none !important;
     position: fixed;
     top: 0;
     left: 0;
@@ -129,6 +192,8 @@ img {
     object-fit: cover;
     display: block;
     margin: auto;
+   border: 5px solid #ffffff;
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.918);
 }
 
 h1 {
@@ -139,15 +204,6 @@ h1 {
 
 p {
     font-size: 1rem;
-}
-
-.resumo{
-max-width: 600px;
-margin: 0 auto;
-text-align: center;
-
-
-
 }
 
 
@@ -196,6 +252,14 @@ p {
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
 }
 
+h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    text-align: center;
+    margin-top: 10px;
+}
+
 
 @media (max-width: 600px) {
   .slider {
@@ -210,4 +274,63 @@ p {
     flex-direction: column;
     gap: 10px;
   }
+}
+
+.skills {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.terminal {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+  color: #00ffcc;
+  font-family: 'Orbitron', sans-serif;
+  box-shadow: 0 0 20px #07cee9;
+}
+
+.skill {
+  margin: 15px 0;
+  text-align: left;
+}
+
+.barra {
+  width: 100%;
+  height: 10px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progresso {
+  height: 100%;
+  width: 0;
+  transition: 1s ease;
+}
+
+.terminal h3 {
+  margin-top: 20px;
+  color: #07cee9;
+  text-shadow: 0 0 10px #07cee9;
+}
+
+/* níveis */
+.progresso.html { width: 40%; background: #07cee9; }
+.progresso.css { width: 50%; background: #00ffcc; }
+.progresso.js { width: 70%; background: #00bfff; }
+.progresso.ps { width: 80%; background: #31a8ff; }
+.progresso.corel { width: 85%; background: #00ffcc; }
+.progresso.figma { width: 75%; background: #a259ff; }
+.progresso.git { width: 70%; background: #f1502f; }
+
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
 }
