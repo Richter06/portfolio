@@ -331,7 +331,11 @@ h3 {
 .progresso.ps { width: 80%; background: #31a8ff; }
 .progresso.corel { width: 85%; background: #00ffcc; }
 .progresso.figma { width: 75%; background: #a259ff; }
-.progresso.git { width: 70%; background: #f1502f; }
+.progresso.git { width: 70%; background: #f12f2f; }
+.progresso.workbench { width: 80%; background: #00ff08; }
+.progresso.phpadm { width: 80%; background: #00ffcc; }
+.progresso.mysql { width: 80%; background: #33ff00; }
+.progresso.postgre { width: 60%; background: #e5ff00; }
 
 #particles {
   position: fixed;

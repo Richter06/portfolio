@@ -2,316 +2,357 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio do Richard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio do Richard</title>
 
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
 
-<div id="particles"></div>
+  <div id="particles"></div>
 
-    <h1>Este sou eu:</h1>
-
-
-    <div class="perfil">
-        <img src="templates/perfil.jpeg" alt="foto de perfil">
-    </div>
-
-    <h3>Richard R. Araújo</h3>
+  <h1>Este sou eu:</h1>
 
 
-
-    <button id="btnSobre" class="btn-sobre">
-        <span class="texto">Quem sou eu?</span>
-        <span class="seta">▼</span>
-    </button>
-
-
-    <div id="sobre" class="sobre-box">
-        <p>💻 Designer Gráfico & Front-End Developer em formação | Apaixonado por criar experiências visuais impactantes
-            e explorar a interseção entre design e tecnologia. Sempre em busca de novos aprendizados, atualmente me
-            aprofundando
-            em front-end, mas com curiosidade sobre back-end para expandir minhas possibilidades no mercado.
-        </p>
-    </div>
-
-    <!---
-
-     <h2>Um pouco sobre mim:</h2>
-
-
-
-
-    <div class="resumo">
-
-        <p>💻 Designer Gráfico & Front-End Developer em formação | Apaixonado por criar experiências visuais impactantes
-            e explorar a interseção entre design e tecnologia. Sempre em busca de novos aprendizados, atualmente me
-            aprofundando
-            em front-end, mas com curiosidade sobre back-end para expandir minhas possibilidades no mercado.</p>
-
-    </div>  
---->
-
-
-    <h2>Conheça um pouco dos meus designs:</h2>
-    <!--Slides-->
-    <div class="slider">
-        <div class="slides" id="slides">
-
-            <img src="templates/projeto1.jpg" onclick="abrirModal(this)" alt="Projeto1">
-            <img src="templates/projeto2.jpg" onclick="abrirModal(this)" alt="Projeto2">
-            <img src="templates/projeto3.jpg" onclick="abrirModal(this)" alt="Projeto3">
-            <img src="templates/projeto4.jpg" onclick="abrirModal(this)" alt="Projeto4">
-            <img src="templates/projeto5.jpg" onclick="abrirModal(this)" alt="Projeto5">
-            <img src="templates/projeto6.jpg" onclick="abrirModal(this)" alt="Projeto6">
-            <img src="templates/projeto7.jpg" onclick="abrirModal(this)" alt="Projeto7">
-            <img src="templates/projeto8.jpg" onclick="abrirModal(this)" alt="Projeto8">
-        </div>
-
-        <div class="buttons">
-
-            <button onclick="prevSlide()">&#10094;</button>
-            <button onclick="nextSlide()">&#10095;</button>
-
-        </div>
-
-    </div>
-
-
-    <div id="modal" class="modal" onclick="fecharModal()">
-        <img id="modalImg">
-    </div>
-
-
-
-
-
-    <!--script dos slides-->
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const slides = document.getElementById('slides');
-
-            if (!slides) return;
-
-            let index = 0;
-
-            function showSlide(i) {
-                const total = slides.children.length;
-
-                if (i >= total) index = 0;
-                else if (i < 0) index = total - 1;
-                else index = i;
-
-                slides.style.transform = `translateX(${-index * 100}%)`;
-            }
-
-            window.nextSlide = () => showSlide(index + 1);
-            window.prevSlide = () => showSlide(index - 1);
-
-            setInterval(() => showSlide(index + 1), 3000);
-        });
-    </script>
-
-    <!---Script do Modal-->
-
-
-
-    <script>
-        function abrirModal(img) {
-            const modal = document.getElementById("modal");
-            const modalImg = document.getElementById("modalImg");
-
-            modal.style.display = "flex";
-            modalImg.src = img.src;
-        }
-
-        function fecharModal() {
-            document.getElementById("modal").style.display = "none";
-        }
-    </script>
-
-<!---Script do Sobre-->
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const btn = document.getElementById("btnSobre");
-  const sobre = document.getElementById("sobre");
-
-  if (!btn || !sobre) return;
-
-  const texto = btn.querySelector(".texto");
-
-  btn.onclick = () => {
-    const ativo = sobre.classList.toggle("ativo");
-    btn.classList.toggle("ativo");
-
-    texto.textContent = ativo ? "Fechar" : "Quem sou eu?";
-  };
-});
-</script>
-
-
-
-<section class="skills">
-  <h2>Minhas Skills</h2>
-
-  <div class="terminal">
-    <p>> carregando habilidades...</p>
-
-    <h3>Front-End</h3>
-    <div class="skill">
-      <span>HTML</span>
-      <div class="barra"><div class="progresso html"></div></div>
-    </div>
-
-    <div class="skill">
-      <span>CSS</span>
-      <div class="barra"><div class="progresso css"></div></div>
-    </div>
-
-    <div class="skill">
-      <span>JavaScript</span>
-      <div class="barra"><div class="progresso js"></div></div>
-    </div>
-
-    <h3>Design</h3>
-    <div class="skill">
-      <span>Photoshop</span>
-      <div class="barra"><div class="progresso ps"></div></div>
-    </div>
-
-    <div class="skill">
-      <span>CorelDRAW</span>
-      <div class="barra"><div class="progresso corel"></div></div>
-    </div>
-
-    <div class="skill">
-      <span>Figma</span>
-      <div class="barra"><div class="progresso figma"></div></div>
-    </div>
-
-    <h3>Ferramentas</h3>
-    <div class="skill">
-      <span>GitHub</span>
-      <div class="barra"><div class="progresso git"></div></div>
-    </div>
+  <div class="perfil">
+    <img src="templates/perfil.jpeg" alt="foto de perfil">
   </div>
-</section>
 
-<!---Animação das Skills--->
-
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const skills = document.querySelector(".skills");
-
-  const observer = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting) {
-      document.querySelectorAll(".progresso").forEach(bar => {
-      bar.style.width = bar.classList.contains("html") ? "90%" :
-                  bar.classList.contains("css") ? "70%" :
-                  bar.classList.contains("js") ? "30%" :
-                  bar.classList.contains("ps") ? "80%" :
-                  bar.classList.contains("corel") ? "95%" :
-                  bar.classList.contains("figma") ? "65%" :
-                  bar.classList.contains("git") ? "40%" :
-                  "70%";
-      });
-    }
-  });
-
-  observer.observe(skills);
-});
-</script>
+  <h3>Richard R. Araújo</h3>
 
 
 
-
-    <h2>Me encontre Aqui:</h2>
-
-    <div class="contatos">
-
-        <a href="https://www.linkedin.com/in/richard-r-araújo" target="_blank">LinkedIn</a>
-        <a href="mailto:richardrodriguis369@gmail.com">Email</a>
-        <a href="https://github.com/Richter06" target="_blank">GitHub</a>
-        <a href="https://www.instagram.com/fenros.design/" target="_blank">Instagram </a>
+  <button id="btnSobre" class="btn-sobre">
+    <span class="texto">Quem sou eu?</span>
+    <span class="seta">▼</span>
+  </button>
 
 
+  <div id="sobre" class="sobre-box">
+    <p>Sou desenvolvedor Front-End em início de carreira, focado na criação de interfaces modernas, responsivas e
+      funcionais, com experiência em HTML, CSS e JavaScript no desenvolvimento de landing pages e sistemas simples,
+      sempre priorizando código limpo e boa experiência do usuário; possuo sólido conhecimento em banco de dados, com
+      prática em SQL e MySQL e familiaridade com PostgreSQL; tenho experiência com Git e GitHub, manutenção e otimização
+      de código (SEO e responsividade) e integração com APIs REST; curso Análise e Desenvolvimento de Sistemas e possuo
+      inglês avançado para leitura de documentação e colaboração em ambientes internacionais; busco minha primeira
+      oportunidade na área para evoluir e contribuir com soluções eficientes.
+    </p>
+  </div>
 
+
+
+  <h2>Conheça um pouco dos meus Projetos:</h2>
+  <!--Slides-->
+  <div class="slider">
+    <div class="slides" id="slides">
+
+      <img src="templates/projeto1.jpg" onclick="abrirModal(this)" alt="Projeto1">
+      <img src="templates/projeto2.jpg" onclick="abrirModal(this)" alt="Projeto2">
+      <img src="templates/projeto3.jpg" onclick="abrirModal(this)" alt="Projeto3">
+      <img src="templates/projeto4.jpg" onclick="abrirModal(this)" alt="Projeto4">
+      <img src="templates/projeto5.jpg" onclick="abrirModal(this)" alt="Projeto5">
+      <img src="templates/projeto6.jpg" onclick="abrirModal(this)" alt="Projeto6">
+      <img src="templates/projeto7.jpg" onclick="abrirModal(this)" alt="Projeto7">
+      <img src="templates/projeto8.jpg" onclick="abrirModal(this)" alt="Projeto8">
+      <img src="templates/projeto9.jpg" onclick="abrirModal(this)" alt="Projeto9">
+      <img src="templates/projeto10.jpg" onclick="abrirModal(this)" alt="Projeto10">
+      <img src="templates/projeto11.jpg" onclick="abrirModal(this)" alt="Projeto11">
+      
+    </div>
+
+    <div class="buttons">
+
+      <button onclick="prevSlide()">&#10094;</button>
+      <button onclick="nextSlide()">&#10095;</button>
 
     </div>
 
-<!---particulas--->
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  </div>
 
-<script>
-const isMobile = window.innerWidth < 768;
 
-tsParticles.load("particles", {
-  background: {
-    color: "transparent"
-  },
+  <div id="modal" class="modal" onclick="fecharModal()">
+    <img id="modalImg">
+  </div>
 
-  interactivity: {
-    events: {
-      onHover: {
-        enable: !isMobile, // desativa hover no mobile
-        mode: ["grab", "attract"]
-      },
-      onClick: {
-        enable: true,
-        mode: isMobile ? "push" : "repulse" // mobile cria, desktop reage
+
+
+
+
+  <!--script dos slides-->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const slides = document.getElementById('slides');
+
+      if (!slides) return;
+
+      let index = 0;
+
+      function showSlide(i) {
+        const total = slides.children.length;
+
+        if (i >= total) index = 0;
+        else if (i < 0) index = total - 1;
+        else index = i;
+
+        slides.style.transform = `translateX(${-index * 100}%)`;
       }
-    },
-    modes: {
-      repulse: {
-        distance: 100,
-        duration: 0.4
-      },
-      push: {
-        quantity: isMobile ? 2 : 4 // menos partículas no celular
-      },
-      grab: {
-        distance: 140
-      },
-      attract: {
-        distance: 150,
-        duration: 0.4
-      }
-    }
-  },
 
-  particles: {
-    number: {
-      value: isMobile ? 30 : 60 // menos no mobile (performance)
-    },
-    color: {
-      value: "#07cee9"
-    },
-    links: {
-      enable: true,
-      color: "#07cee9",
-      distance: 120
-    },
-    move: {
-      enable: true,
-      speed: isMobile ? 0.8 : 1 // mais suave no celular
-    },
-    size: {
-      value: 2
-    },
-    opacity: {
-      value: 0.5
+      window.nextSlide = () => showSlide(index + 1);
+      window.prevSlide = () => showSlide(index - 1);
+
+      setInterval(() => showSlide(index + 1), 3000);
+    });
+  </script>
+
+  <!---Script do Modal-->
+
+
+
+  <script>
+    function abrirModal(img) {
+      const modal = document.getElementById("modal");
+      const modalImg = document.getElementById("modalImg");
+
+      modal.style.display = "flex";
+      modalImg.src = img.src;
     }
-  }
-});
-</script>
+
+    function fecharModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+  </script>
+
+  <!---Script do Sobre-->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const btn = document.getElementById("btnSobre");
+      const sobre = document.getElementById("sobre");
+
+      if (!btn || !sobre) return;
+
+      const texto = btn.querySelector(".texto");
+
+      btn.onclick = () => {
+        const ativo = sobre.classList.toggle("ativo");
+        btn.classList.toggle("ativo");
+
+        texto.textContent = ativo ? "Fechar" : "Quem sou eu?";
+      };
+    });
+  </script>
+
+
+
+  <section class="skills">
+    <h2>Minhas Skills</h2>
+
+    <div class="terminal">
+      <p>> carregando habilidades...</p>
+
+      <h3>Front-End</h3>
+      <div class="skill">
+        <span>HTML</span>
+        <div class="barra">
+          <div class="progresso html"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <span>CSS</span>
+        <div class="barra">
+          <div class="progresso css"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <span>JavaScript</span>
+        <div class="barra">
+          <div class="progresso js"></div>
+        </div>
+      </div>
+
+      <h3>Design</h3>
+      <div class="skill">
+        <span>Photoshop</span>
+        <div class="barra">
+          <div class="progresso ps"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <span>CorelDRAW</span>
+        <div class="barra">
+          <div class="progresso corel"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <span>Figma</span>
+        <div class="barra">
+          <div class="progresso figma"></div>
+        </div>
+      </div>
+
+      <h3>Ferramentas</h3>
+      <div class="skill">
+        <span>GitHub</span>
+        <div class="barra">
+          <div class="progresso git"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <span>Workbench</span>
+        <div class="barra">
+          <div class="progresso workbench"></div>
+        </div>
+      </div>
+
+
+      <div class="skill">
+        <span>PHPMyAdmin</span>
+        <div class="barra">
+          <div class="progresso phpadm"></div>
+        </div>
+      </div>
+
+      <h3>Banco de Dados</h3>
+
+      <div class="skill">
+        <span>MySQL</span>
+        <div class="barra">
+          <div class="progresso mysql"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <span>PostgreSQL</span>
+        <div class="barra">
+          <div class="progresso postgre"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!---Animação das Skills--->
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const skills = document.querySelector(".skills");
+
+      const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          document.querySelectorAll(".progresso").forEach(bar => {
+            bar.style.width = bar.classList.contains("html") ? "100%" :
+              bar.classList.contains("css") ? "70%" :
+                bar.classList.contains("js") ? "30%" :
+                  bar.classList.contains("ps") ? "80%" :
+                    bar.classList.contains("corel") ? "95%" :
+                      bar.classList.contains("figma") ? "65%" :
+                        bar.classList.contains("git") ? "90%" :
+                          bar.classList.contains("workbench") ? "80%" :
+                            bar.classList.contains("phpadm") ? "70%" :
+                              bar.classList.contains("mysql") ? "90%" :
+                                bar.classList.contains("postgre") ? "60%" :
+                                  "70%";
+          });
+        }
+      });
+
+      observer.observe(skills);
+    });
+  </script>
+
+
+
+
+  <h2>Me encontre Aqui:</h2>
+
+  <div class="contatos">
+
+    <a href="https://www.linkedin.com/in/richard-r-araújo" target="_blank">LinkedIn</a>
+    <a href="mailto:richardrodriguis369@gmail.com">Email</a>
+    <a href="https://github.com/Richter06" target="_blank">GitHub</a>
+    <a href="https://www.instagram.com/fenros.design/" target="_blank">Instagram </a>
+
+
+
+
+  </div>
+
+  <!---particulas--->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+  <script>
+    const isMobile = window.innerWidth < 768;
+
+    tsParticles.load("particles", {
+      background: {
+        color: "transparent"
+      },
+
+      interactivity: {
+        events: {
+          onHover: {
+            enable: !isMobile,
+            mode: ["grab", "attract"]
+          },
+          onClick: {
+            enable: true,
+            mode: isMobile ? "push" : "repulse"
+          }
+        },
+        modes: {
+          repulse: {
+            distance: 100,
+            duration: 0.4
+          },
+          push: {
+            quantity: isMobile ? 2 : 4
+          },
+          grab: {
+            distance: 140
+          },
+          attract: {
+            distance: 150,
+            duration: 0.4
+          }
+        }
+      },
+
+      particles: {
+        number: {
+          value: isMobile ? 30 : 60
+        },
+        color: {
+          value: "#07cee9"
+        },
+        links: {
+          enable: true,
+          color: "#07cee9",
+          distance: 120
+        },
+        move: {
+          enable: true,
+          speed: isMobile ? 0.8 : 1
+        },
+        size: {
+          value: 2
+        },
+        opacity: {
+          value: 0.5
+        }
+      }
+    });
+  </script>
 
 </body>
 
